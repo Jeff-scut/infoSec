@@ -16,20 +16,6 @@ class Joker:
         # 替换搜索词为“360搜索”
         flow.request.query.set_all("wd", ["360搜索"])
 
-        stra=flow.request._get_query()
-        strb=flow.request.content
-        strc=flow.request.data
-        print("显眼！招摇！",stra)
-        print("低调奢华有内涵",strb)
-        print("带带我",strc)
-
-        conn=get_db()
-        cursor=conn.cursor()
-        cursor.execute('INSERT INTO ssss (msg) VALUES ("zmbgjtyxnztyblbwdm") ')
-        #记得commit！如果失败就rollback
-        conn.commit()
-        conn.close()
-
 
     def response(self, flow: mitmproxy.http.HTTPFlow):
         # 忽略非 360 搜索地址
