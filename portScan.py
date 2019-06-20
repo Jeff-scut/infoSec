@@ -2,6 +2,7 @@ import time
 import socket
 from createDB import get_db
 
+#TODO：输入网址，然后解析后扫描
 def func_DNS(domain):
     try:
         return socket.gethostbyname(domain)
@@ -38,9 +39,15 @@ def scanStart(ip, port_list, timeout):
 
 #扫描所有端口
 def scanAll(ip, startPort, endPort, timeout=3):
+    start_time=time.time()
     port_list = range(startPort,endPort+1)
     result =  scanStart(ip, port_list, timeout)
+    end_time=time.time()
+    use_time=end_time-start_time
+    print("用时:",use_time)
     return result
+
+#可以再搞一个扫描常用端口的
 
 if __name__ == '__main__':
     scanAll("127.0.0.1",1050,1100)
