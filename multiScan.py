@@ -77,5 +77,5 @@ def main():
     end_time = time.time() # 脚本结束执行的时间
     print("用时:",end_time-start_time)
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
